@@ -9,3 +9,6 @@ npm install dotenv
 
 # Database
 npm install mongodb mongoose - for database and orm
+
+# JWT and Bcrypt
+npm install jsonwebtoken bcryptjs
