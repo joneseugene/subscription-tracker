@@ -34,17 +34,21 @@ export const signUp = async (req, res, next) => {
         await session.commitTransaction();
         session.endSession();
 
+        // Remove password from response
+        const userResponse = { ...newUsers[0]._doc };
+        delete userResponse.password;
+
         res.status(201).json({
             success: true,
             title: 'SUCCESS',
             message: 'User created successfully',
             data: {
                 token,
-                user: newUsers[0]
+                user: userResponse 
             }
-        })
+        });
     } catch (error) {
-        //terminate is something goes wrong
+        //terminate if something goes wrong
         await session.abortTransaction();
         session.endSession();
         next(error);
