@@ -12,3 +12,6 @@ npm install mongodb mongoose - for database and orm
 
 # JWT and Bcrypt
 npm install jsonwebtoken bcryptjs
+
+# ARCJET
+npm i @arcjet/node - security
